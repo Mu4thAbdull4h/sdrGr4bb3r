@@ -1,6 +1,6 @@
 # sdrGr4bb3r
 
-[![N|Solid](https://github.com/Mu4thAbdull4h/sdrGr4bb3r/raw/main/ascii.png)](https://nodesource.com/products/nsolid)
+![](https://github.com/Mu4thAbdull4h/sdrGr4bb3r/raw/main/ascii.jpg)
 
 # Screen 
 ![Alt Text](https://github.com/Mu4thAbdull4h/sdrGr4bb3r/raw/main/screen.gif)
