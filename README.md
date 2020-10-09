@@ -19,6 +19,16 @@ chmod +x sdrGr4bb3r.sh
  * Debian. (I just test it on Kali Linux)
  * Internet connection.
 
+# Included Tools
+* dump1090
+* IMSI-Catcher
+* ADSBox
+* ACARS
+* Gqrx
+* rtl_433
+* nrf905_decoder
+* kalibrate-HackRF
+
 # Note 
 ```
 It need to improve prerequisites packages list, kali already has a lot of installed debs.
