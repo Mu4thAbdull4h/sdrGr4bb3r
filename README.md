@@ -5,7 +5,7 @@
 # Screen 
 ![Alt Text](https://github.com/Mu4thAbdull4h/sdrGr4bb3r/raw/main/screen.gif)
 
-# setup 
+# Setup 
 ```sh
 apt update
 https://raw.githubusercontent.com/Mu4thAbdull4h/sdrGr4bb3r/main/sdrGr4bb3r.sh
