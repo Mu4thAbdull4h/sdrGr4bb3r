@@ -3,7 +3,7 @@
 ![](https://github.com/Mu4thAbdull4h/sdrGr4bb3r/raw/main/ascii.jpg)
 
 # Screen 
-![Alt Text](https://github.com/Mu4thAbdull4h/sdrGr4bb3r/raw/main/screen.gif)
+!(https://github.com/Mu4thAbdull4h/sdrGr4bb3r/raw/main/screen.gif)
 
 # Setup 
 ```sh
