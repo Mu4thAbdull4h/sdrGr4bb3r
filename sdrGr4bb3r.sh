@@ -5,11 +5,6 @@ declare -A tools
 # tools[toolOrder,PrerequisiteOrder]=[wget|apt],[PrereqName],[link|PackageName],[compressed(y),uncompressed(n)],[Installer(y),notInstaller(n)],[installcommand],[Rename]
 
 
-#tools[0]='wget','SQLite','http://192.168.15.120/kali/sqlite-amalgamation-3330000.zip','y','y','','sqlite3'
-
-
-
-
 #------------------------------------------------- dump1090 ------------------------------------------------
   tools[0]='wget','dump1090','https://github.com/MalcolmRobb/dump1090/archive/master.zip','y','y','make',''
 tools[0,0]='apt','Realtek RTL2832U (development)','librtlsdr-dev','n','n','',''
@@ -32,6 +27,14 @@ tools[2,0]='wget','SQLite','https://www.sqlite.org/2020/sqlite-amalgamation-3330
   tools[7]='wget','kalibrate-HackRF','https://github.com/scateu/kalibrate-hackrf/archive/master.zip','y','y',"./bootstrap && CXXFLAGS='-W -Wall -O3' ./configure && make",''
 tools[7,0]='apt','Libtool','libtool','n','n','',''
 tools[7,1]='apt','Libtool','libhackrf-dev','n','n','',''
+
+
+
+
+
+
+
+
 
 
 
