@@ -411,7 +411,7 @@ mainFunction()
 		prerequisitesList $ToolNumber
 		if [ "$?" = "0" ] ; then 	
 			echo -e "[${green}■■■■■■${normal}] All ${white}${ToolName}'s${normal} prerequisites downloaded and ${green}Installed${normal} Successfully.";
-			echo -e "[${blue} ---> ${normal}] Installing ${white}${ToolName}'s${normal} will start.";
+			echo -e "[${blue} ---> ${normal}] Installing ${white}${ToolName}${normal} will start.";
 			toolInstaller $ToolNumber			
 		else 						
 			echo -e "[${red}■■■■■■${normal}] ${white}${ToolName}'s${normal} prerequisites ${red}FAILED${normal} to download and Install Successfully.";
