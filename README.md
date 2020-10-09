@@ -1,9 +1,9 @@
 # sdrGr4bb3r
 
-![](https://github.com/Mu4thAbdull4h/sdrGr4bb3r/raw/main/ascii.jpg)
+![info](https://github.com/Mu4thAbdull4h/sdrGr4bb3r/raw/main/ascii.jpg)
 
 # Screen 
-!(https://github.com/Mu4thAbdull4h/sdrGr4bb3r/raw/main/screen.gif)
+![It Works!](https://github.com/Mu4thAbdull4h/sdrGr4bb3r/raw/main/screen.gif)
 
 # Setup 
 ```sh
