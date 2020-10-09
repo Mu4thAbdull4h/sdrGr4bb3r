@@ -6,14 +6,14 @@
 ![Alt Text](https://github.com/Mu4thAbdull4h/sdrGr4bb3r/raw/main/screen.gif)
 
 # setup:
-```
-$ apt update
-$ https://raw.githubusercontent.com/Mu4thAbdull4h/sdrGr4bb3r/main/sdrGr4bb3r.sh
-$ chmod +x sdrGr4bb3r.sh
-```
+```sh
+apt update
+https://raw.githubusercontent.com/Mu4thAbdull4h/sdrGr4bb3r/main/sdrGr4bb3r.sh
+chmod +x sdrGr4bb3r.sh
+```sh
 # Usage:
 ```
-$ ./sdrGr4bb3r.sh 
+./sdrGr4bb3r.sh 
 ```
 # Requirements:
  * Debian. (I just test it on Kali Linux).
