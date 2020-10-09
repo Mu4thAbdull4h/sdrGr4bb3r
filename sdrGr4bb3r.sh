@@ -383,7 +383,7 @@ prerequisitesList()
 
 
 
-# -- prerequisitesList List
+# -- One Tool Installer
 toolInstaller()
 {
 	sleep $TimeDelay
