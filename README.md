@@ -16,12 +16,12 @@ chmod +x sdrGr4bb3r.sh
 ./sdrGr4bb3r.sh 
 ```
 # Requirements
- * Debian. (I just test it on Kali Linux).
+ * Debian. (I just test it on Kali Linux)
  * Internet connection.
 
 # Note 
 ```
-It need to improve prerequisites packages list, kali already has a lot of installed deb packages.
+It need to improve prerequisites packages list, kali already has a lot of installed debs.
 ```
 
 # Contact 
