@@ -108,9 +108,9 @@ isFileExists()
 isCompressed()
 {
   if [ $1 = 'y' ] ; then 
-		echo '0'
+		echo '0';
   else 
-		echo '1'
+		echo '1';
   fi 
 }
 
@@ -119,9 +119,9 @@ isCompressed()
 isInstaller()
 {
   if [ $1 = 'y' ] ; then 
-		echo '0'
+		echo '0';
   else 
-		echo '1'
+		echo '1';
   fi
 }
 
@@ -130,10 +130,10 @@ isInstaller()
 # -- unzip 
 _unzip()
 {
-	sleep $TimeDelay
-	unzip -l "$iPath/$1" | sed -n -e '5p' | cut -c 31- | cut -d'/' -f 1
-	$(unzip -o -qq "$iPath/$1" -d "$iPath")
-	return $?
+	sleep $TimeDelay;
+	unzip -l "$iPath/$1" | sed -n -e '5p' | cut -c 31- | cut -d'/' -f 1 ;
+	$(unzip -o -qq "$iPath/$1" -d "$iPath") ;
+	return $? ;
 }
 
 
@@ -141,8 +141,8 @@ _unzip()
 # -- tar 
 _tar()
 {
-	tar -xvf "$iPath/$1" --directory "$iPath" | cut -d'/' -f1 | sed -n -e '1p'
-	return $?
+	tar -xvf "$iPath/$1" --directory "$iPath" | cut -d'/' -f1 | sed -n -e '1p';
+	return $?;
 }
 
 
@@ -156,7 +156,7 @@ _apt()
 		return 0;
 	else
 		echo -e "[apt   ] install ${white}$2${normal} is ${red}FAILED${normal}.";
-		return 1
+		return 1;
 	fi
 }
 
@@ -175,7 +175,7 @@ _rm()
 
 	if [ "$?" = "0" ] ; then
 		echo -e "[rm    ] ${white}$1${normal}, ${green}deleted${normal} successfully.";
-		return 0
+		return 0;
 	else
 		echo -e "[rm    ] ${white}$1${normal}, ${red}FAILED${normal} to delete.";
 		return 1;
@@ -188,12 +188,12 @@ _rm()
 # -- wget
 _wget()
 {
-	$(wget $1 -O "${iPath}/$2" &> /dev/null)
-	sleep $TimeDelay
+	$(wget $1 -O "${iPath}/$2" &> /dev/null);
+	sleep $TimeDelay;
 	if [ "$?" = "0" ] ; then 
-		echo 0
+		echo 0;
 	else 
-		echo 1
+		echo 1;
 	fi 	
 }
 
@@ -206,8 +206,8 @@ _rename()
 	then
 		return 1;
 	fi 
-	mv "$iPath/$1" "$iPath/$2"
-	return $?
+	mv "$iPath/$1" "$iPath/$2";
+	return $?;
 }
 
 
@@ -220,7 +220,7 @@ _make()
 		cd $iPath/$NewName ;		
 		if [ $? = '0' ] ; then
 			$(eval $3 &> /dev/null)
-			result="$?"
+			result="$?";
 			if [[ "$result" = "0" ]] ; then
 				echo -e "[make  ] ${white}$4${normal}, ${green}Installed successfully${normal}.";
 			else
@@ -232,8 +232,8 @@ _make()
 		echo -e "[cmd   ] \$${red}>${normal}${white}${3}${normal}";
 		cd $iPath ;
 		if [ $? = '0' ] ; then
-			$(eval $3 &> /dev/null)
-			result="$?"
+			$(eval $3 &> /dev/null);
+			result="$?";
 			if [[ "$result" = "0" ]] ; then
 				echo -e "[make  ] ${white}$4${normal}, ${green}Installed successfully${normal}.";
 			else
@@ -249,29 +249,29 @@ _make()
 # -- unpack the package
 _unpack()
 {
-	ExtractExtension=$(echo $1 | rev | cut -d '.' -f 1 | rev)
-	     ExtractName=$(echo $1 | rev | cut -d '.' -f 2- | rev)
+	ExtractExtension=$(echo $1 | rev | cut -d '.' -f 1 | rev);
+	     ExtractName=$(echo $1 | rev | cut -d '.' -f 2- | rev);
 		 
-	echo -e "[comp  ] ${white}$1${normal} Compression Type is ${white}${ExtractExtension}${normal}."
+	echo -e "[comp  ] ${white}$1${normal} Compression Type is ${white}${ExtractExtension}${normal}.";
 	if [ "$ExtractExtension" = "zip" ] ; then
-		NewName=$(_unzip "$1")
+		NewName=$(_unzip "$1");
 		if [ "$?" = "0" ] ; then 
-			echo -e "[zip   ] ${white}$1${normal} extracted to ${white}$NewName ${green}Successfully${normal}."
+			echo -e "[zip   ] ${white}$1${normal} extracted to ${white}$NewName ${green}Successfully${normal}.";
 		else
-			echo -e "[zip   ] ${white}$1${normal} extracting to ${white}$NewName ${normal}is ${red}Failed${normal}."
-			return 1
+			echo -e "[zip   ] ${white}$1${normal} extracting to ${white}$NewName ${normal}is ${red}Failed${normal}.";
+			return 1;
 		fi 
 	elif [ "$ExtractExtension" == "tar" ] || [ "$ExtractExtension" == "xz" ] || [ "$ExtractExtension" == "gz" ]
 	then
-		NewName=$(_tar "$1")
+		NewName=$(_tar "$1");
 		if [ "$?" = "0" ] ; then 
-			echo -e "[tar   ] ${white}$1${normal} extracted to ${white}$NewName ${green}Successfully${normal}."
+			echo -e "[tar   ] ${white}$1${normal} extracted to ${white}$NewName ${green}Successfully${normal}.";
 		else
-			echo -e "[tar   ] ${white}$1${normal} extracting to ${white}$NewName ${normal}is ${red}Failed${normal}."
-			return 1
+			echo -e "[tar   ] ${white}$1${normal} extracting to ${white}$NewName ${normal}is ${red}Failed${normal}.";
+			return 1;
 		fi 
 	else 
-		echo -e "[-     ] Not Knownen."
+		echo -e "[-     ] Not Knownen.";
 		return 0;	
 	fi
 	return $?
@@ -293,10 +293,10 @@ wgetFunc()
 	ExtractFileName=$(echo $2 | cut -d '/' -f $(($(echo $2 | grep -o '/' | wc -l)+1)));	
 	Link=$2;
 	if [[ $(isFileExists $ExtractFileName) -eq 0 ]] ; then
-		_rm "$ExtractFileName" "$iPath"
+		_rm "$ExtractFileName" "$iPath";
 		if [[ $? -eq 1 ]]
 		then 
-			return 1
+			return 1;
 		fi 
 	fi
 	
@@ -304,14 +304,14 @@ wgetFunc()
 		echo -e "[wget  ] ${white}$1${normal}, ${green}Downloaded successfully${normal}.";
 	else 
 		echo -e "[wget  ] ${white}$1${normal}, ${red}Downloaded unsuccessfully${normal}.";
-		return 1
+		return 1;
 	fi
 	
 	if [[ "$?"  -eq '0' ]] ; then
 		if [ $(isCompressed $3) = 0 ] ; then 
 			_unpack $ExtractFileName $1;
 			if [ $? = 0 ] ; then 
-			_rm $ExtractFileName $iPath
+			_rm $ExtractFileName $iPath;
 			fi 
 		fi
 		
@@ -327,9 +327,12 @@ wgetFunc()
 			
 		fi
 		
-		if [ $(isInstaller $4)  = 0 ] ; then   _make $ExtractFileName $3 "$5" $1; fi
+		if [ $(isInstaller $4)  = 0 ] 
+		then
+			_make $ExtractFileName $3 "$5" $1;
+		fi
 		
-		sleep $TimeDelay
+		sleep $TimeDelay;
 		if [[ "$?" -eq '0' ]] ; then
 			$(echo -e "")
 		else
@@ -354,33 +357,33 @@ wgetFunc()
 # -- prerequisitesList List
 prerequisitesList()
 {
-	ToolName=$(echo ${tools[$1]} | cut -d ',' -f 2)
-	sleep $TimeDelay
+	ToolName=$(echo ${tools[$1]} | cut -d ',' -f 2);
+	sleep $TimeDelay;
 	c=0;
 	while [ -n "${tools[$1,$c]}" ];do 
-		      wgetOrApt=$(echo ${tools[$1,$c]} | cut -d ',' -f 1)
-		    PackageName=$(echo ${tools[$1,$c]} | cut -d ',' -f 2)
-		        Package=$(echo ${tools[$1,$c]} | cut -d ',' -f 3)
-		CompressionType=$(echo ${tools[$1,$c]} | cut -d ',' -f 4)
-		   InstallOrNot=$(echo ${tools[$1,$c]} | cut -d ',' -f 5)
-		MakeFileOptions=$(echo ${tools[$1,$c]} | cut -d ',' -f 6)
-			   RenameTo=$(echo ${tools[$1,$c]} | cut -d ',' -f 7)
+		      wgetOrApt=$(echo ${tools[$1,$c]} | cut -d ',' -f 1);
+		    PackageName=$(echo ${tools[$1,$c]} | cut -d ',' -f 2);
+		        Package=$(echo ${tools[$1,$c]} | cut -d ',' -f 3);
+		CompressionType=$(echo ${tools[$1,$c]} | cut -d ',' -f 4);
+		   InstallOrNot=$(echo ${tools[$1,$c]} | cut -d ',' -f 5);
+		MakeFileOptions=$(echo ${tools[$1,$c]} | cut -d ',' -f 6);
+		       RenameTo=$(echo ${tools[$1,$c]} | cut -d ',' -f 7);
 		
 		
 		echo -e "[Prereq] ${yellow}${PackageName}${normal} downloading and installing.";
 		
 		if [ $wgetOrApt = "apt" ] ; then 
-			_apt "${PacakgeName}" "${Package}"
+			_apt "${PacakgeName}" "${Package}";
 		else
-			wgetFunc "${PackageName}" "${Package}" "${CompressionType}" "${InstallOrNot}" "${MakeFileOptions}" "$RenameTo"
+			wgetFunc "${PackageName}" "${Package}" "${CompressionType}" "${InstallOrNot}" "${MakeFileOptions}" "$RenameTo";
 		fi
 		
 		if [ "$?" = "1" ] ; then
-			return 1
+			return 1;
 		fi
-		let "c+=1"
+		let "c+=1";
 	done
-	return 0
+	return 0;
 }
 
 
@@ -390,25 +393,25 @@ prerequisitesList()
 toolInstaller()
 {
 	sleep $TimeDelay
-		  wgetOrApt=$(echo ${tools[$1]} | cut -d ',' -f 1)
-		PackageName=$(echo ${tools[$1]} | cut -d ',' -f 2)
-			Package=$(echo ${tools[$1]} | cut -d ',' -f 3)
-	CompressionType=$(echo ${tools[$1]} | cut -d ',' -f 4)
-	   InstallOrNot=$(echo ${tools[$1]} | cut -d ',' -f 5)
-	MakeFileOptions=$(echo ${tools[$1]} | cut -d ',' -f 6)
-		   RenameTo=$(echo ${tools[$1]} | cut -d ',' -f 7)
+		wgetOrApt=$(echo ${tools[$1]} | cut -d ',' -f 1);
+		PackageName=$(echo ${tools[$1]} | cut -d ',' -f 2);
+		Package=$(echo ${tools[$1]} | cut -d ',' -f 3);
+	CompressionType=$(echo ${tools[$1]} | cut -d ',' -f 4);
+	   InstallOrNot=$(echo ${tools[$1]} | cut -d ',' -f 5);
+	MakeFileOptions=$(echo ${tools[$1]} | cut -d ',' -f 6);
+		   RenameTo=$(echo ${tools[$1]} | cut -d ',' -f 7);
 
 	if [ $wgetOrApt = "apt" ] ; then 
-		_apt "${PacakgeName}" "${Package}"
+		_apt "${PacakgeName}" "${Package}";
 	else
-		wgetFunc "${PackageName}" "${Package}" "${CompressionType}" "${InstallOrNot}" "${MakeFileOptions}" "$RenameTo"
+		wgetFunc "${PackageName}" "${Package}" "${CompressionType}" "${InstallOrNot}" "${MakeFileOptions}" "$RenameTo";
 	fi
 	
 	if [ "$?" = "1" ] ; then
-		return 1
+		return 1;
 	fi
 
-	return 0
+	return 0;
 }
 
 
@@ -419,15 +422,15 @@ mainFunction()
 	ToolNumber=0;
 	while [ -n "${tools[$ToolNumber]}" ]
 	do 
-		ToolName=$(echo ${tools[$ToolNumber]} | cut -d ',' -f 2)
+		ToolName=$(echo ${tools[$ToolNumber]} | cut -d ',' -f 2);
 		
 		echo -e "[ ${red}Tool${normal} ] ${white}${ToolName}${normal} and its prerequisites downloading.";
 		
-		prerequisitesList $ToolNumber
+		prerequisitesList $ToolNumber;
 		if [ "$?" = "0" ] ; then 	
 			echo -e "[${green}■■■■■■${normal}] All ${white}${ToolName}'s${normal} prerequisites downloaded and ${green}Installed${normal} Successfully.";
 			echo -e "[${blue} ---> ${normal}] Installing ${white}${ToolName}${normal} will start.";
-			toolInstaller $ToolNumber
+			toolInstaller $ToolNumber;
 		else 						
 			echo -e "[${red}■■■■■■${normal}] ${white}${ToolName}'s${normal} prerequisites ${red}FAILED${normal} to download and Install Successfully.";
 		fi 
@@ -464,7 +467,7 @@ main()
 		echo -e "[*     ] ${red}We Will start in 3s${normal}.";
 		sleep 3;
 		echo -e "[${yellow}START${normal} ]";
-		mainFunction
+		mainFunction;
 		echo -e "[${yellow}END${normal}   ]";
 		echo -e "[*     ] ${yellow}Installation Finished${normal}.";
 		#--   End Installing 
@@ -485,7 +488,7 @@ main()
 
 hlp()
 {
-	echo -e ""
+	echo -e "";
 	echo -e "#----------------------------------------------------------------,";
 	echo -e "#                                                                |";
 	echo -e "#             ${red}●${normal} ${red}●${normal}                           ${red}●${normal}                    |";
@@ -503,7 +506,7 @@ hlp()
 	echo -e "# Author : Muath Abdullah                                        |";
 	echo -e "#  Email : m0az@outlook.com                                      |";
 	echo -e "#----------------------------------------------------------------'";
-	echo -e ""
+	echo -e "";
 }
 
 
@@ -516,6 +519,6 @@ hlp()
 if [ -n $1 ] && [ "$1" = "-h" ] || [ "$1" = "--help" ] ; then
 	hlp;
 else
-	main $1
+	main $1;
 fi
 
