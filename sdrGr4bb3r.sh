@@ -356,8 +356,7 @@ prerequisitesList()
 			   RenameTo=$(echo ${tools[$1,$c]} | cut -d ',' -f 7)
 		
 		
-		echo -e "[Prereq] ${yellow}${PackageName}'s${normal} downloading and installing.";
-		
+		echo -e "[Prereq] ${yellow}${PackageName}'s${normal} downloading and installing.";		
 		
 		if [ $wgetOrApt = "apt" ] ; then 
 			_apt "${PacakgeName}" "${Package}"
