@@ -101,7 +101,7 @@ isFileExists()
 
 
 
-# -- check if Compressed
+# -- check Compression flag
 isCompressed()
 {
   if [ $1 = 'y' ] ; then 
@@ -284,7 +284,7 @@ _unpack()
 
 
 
-# -- wget the file and detect FileName
+# -- wget and prepare the target
 wgetFunc()
 {
 	ExtractFileName=$(echo $2 | cut -d '/' -f $(($(echo $2 | grep -o '/' | wc -l)+1)));	
