@@ -68,7 +68,6 @@ isOnline()
 }
 
 
-
 # -- check root user
 rootCheck()
 {
@@ -514,7 +513,7 @@ hlp()
 
 
 
-# -- First Run Part
+# -- startup Part
 
 if [ -n $1 ] && [ "$1" = "-h" ] || [ "$1" = "--help" ] ; then
 	hlp;
