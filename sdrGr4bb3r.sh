@@ -19,7 +19,7 @@ tools[0,1]='apt','Realtek RTL2832U (library)','librtlsdr0','n','n','',''
 tools[1,0]='apt','GnuRadio-Global System for Mobile Communications','gr-gsm','n','n','',''
 #-------------------------------------------------- ADSBox -------------------------------------------------
   tools[2]='wget','ADSBox','http://ucideas.org/projects/hard/adsb/adsbox-20170518.tar.gz','y','y','make',''
-tools[2,0]='wget','SQLite','https://www.sqlite.org/2020/sqlite-amalgamation-3330000.zip','y','y','','sqlite3'
+tools[2,0]='wget','SQLite','https://www.sqlite.org/2020/sqlite-amalgamation-3330000.zip','y','n','','sqlite3'
 #-------------------------------------------------- ACARS --------------------------------------------------
   tools[3]='wget','ACARS','https://github.com/gat3way/rtl_acars_ng/archive/master.zip','y','y','make',''
 #-------------------------------------------------- Gqrx ---------------------------------------------------
