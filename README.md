@@ -8,10 +8,11 @@
 # setup:
 ```
 $ apt update
+$ https://raw.githubusercontent.com/Mu4thAbdull4h/sdrGr4bb3r/main/sdrGr4bb3r.sh
+$ chmod +x sdrGr4bb3r.sh
 ```
 # Usage:
 ```
-$ chmod +x sdrGr4bb3r.sh
 $ ./sdrGr4bb3r.sh 
 ```
 # Requirements:
