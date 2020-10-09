@@ -5,9 +5,6 @@ declare -A tools
 # tools[toolOrder,PrerequisiteOrder]=[wget|apt],[PrereqName],[link|PackageName],[compressed(y),uncompressed(n)],[Installer(y),notInstaller(n)],[installcommand],[Rename]
 
 
-#tools[0]='wget','SQLite','http://192.168.15.120/kali/sqlite-amalgamation-3330000.zip','y','y','','sqlite3'
-
-
 
 
 #------------------------------------------------- dump1090 ------------------------------------------------
