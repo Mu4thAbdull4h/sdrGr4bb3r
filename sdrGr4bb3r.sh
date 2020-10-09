@@ -271,7 +271,7 @@ _unpack()
 			return 1;
 		fi 
 	else 
-		echo -e "[-     ] Not Knownen.";
+		echo -e "[-     ] unknown.";
 		return 0;	
 	fi
 	return $?
