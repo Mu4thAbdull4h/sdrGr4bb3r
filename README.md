@@ -8,7 +8,7 @@
 # Setup 
 ```sh
 apt update
-https://raw.githubusercontent.com/Mu4thAbdull4h/sdrGr4bb3r/main/sdrGr4bb3r.sh
+wget https://raw.githubusercontent.com/Mu4thAbdull4h/sdrGr4bb3r/main/sdrGr4bb3r.sh
 chmod +x sdrGr4bb3r.sh
 ```
 # Usage 
