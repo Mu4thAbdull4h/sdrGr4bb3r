@@ -443,7 +443,7 @@ mainFunction()
 
 main()
 {
-	echo -e "[*     ] Check internet Connection..";	
+	echo -e "[*     ] Check internet connection..";	
 	if [[ $(isOnline) -eq 1 ]] ; then
 		echo -e "[+     ] You are ${green}online.${normal}";
 		sleep $TimeDelay;
@@ -464,16 +464,16 @@ main()
 		sleep $TimeDelay;
 		
 		#-- Start Installing 
-		echo -e "[*     ] ${red}We Will start in 3s${normal}.";
+		echo -e "[*     ] ${red}We will start in 3s${normal}.";
 		sleep 3;
 		echo -e "[${yellow}START${normal} ]";
 		mainFunction;
 		echo -e "[${yellow}END${normal}   ]";
-		echo -e "[*     ] ${yellow}Installation Finished${normal}.";
+		echo -e "[*     ] ${yellow}Installation finished${normal}.";
 		#--   End Installing 
 		
 	else
-		echo -e "[-     ] You are NOT ${red}root${normal}.";
+		echo -e "[-     ] You are${red} NOT${green} root${normal}.";
 		sleep $TimeDelay;
 		echo -e "[*     ] We will Stop here.";
 		sleep $TimeDelay;
