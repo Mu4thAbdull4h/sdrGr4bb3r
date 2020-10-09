@@ -489,9 +489,7 @@ hlp()
 	echo -e "#     ${red}●${normal}             |             | ${red}●${normal}         ${white} v0.1 2020.Oct.9${normal}   |";
 	echo -e "#                   ${red}●${normal}             ${red}●${normal}                              |";
 	echo -e "#----------------------------------------------------------------+";
-	echo -e "#                                                                |";
-	echo -e "# usage  : ./sdrGrabber [PathToInstall] (def. : CurrentFolder )  |";
-	echo -e "#                                                                |";
+	echo -e "# usage  : ./sdrGr4bb3r [PathToInstall] (def. : CurrentFolder )  |";
 	echo -e "# Author : Muath Abdullah                                        |";
 	echo -e "#  Email : m0az@outlook.com                                      |";
 	echo -e "#----------------------------------------------------------------'";
