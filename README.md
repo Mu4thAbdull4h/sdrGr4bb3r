@@ -28,6 +28,8 @@ chmod +x sdrGr4bb3r.sh
 * rtl_433
 * nrf905_decoder
 * kalibrate-HackRF
+* GPS-SDR-SIM
+* Google Earth Pro
 
 # Note 
 ```
