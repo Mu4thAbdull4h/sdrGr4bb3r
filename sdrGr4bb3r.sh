@@ -50,9 +50,12 @@ tools[2,0]='wget','SQLite','https://www.sqlite.org/2020/sqlite-amalgamation-3330
 tools[8,0]='apt','apt-transport-https','apt-transport-https','n','n','',''
 #-------------------------------------------- Google Earth Pro ---------------------------------------------
   tools[9]='wget','Google Earth Pro','https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb','n','y','dpkg -i google-earth-pro-stable_current_amd64.deb',''
+#------------------------------------ Gr-limesdr Plugin for GNURadio ---------------------------------------
+ tools[10]='apt','Gr-limesdr Plugin for GNURadio','gr-limesdr','n','n','',''
+
+
 # #------------------------------------------------ SigDigger ------------------------------------------------
 # # tools[10]='wget','SigDigger','https://github.com/BatchDrake/SigDigger/releases/download/v0.1.0/SigDigger-0.1.0-x86_64-full.AppImage','n','n','',''
-
 # # #------------------------------------------------- Linrad --------------------------------------------------
   # # tools[0]='wget','Linrad','http://www.sm5bsz.com/linuxdsp/archive/lir04-14a.zip','y','y','make xlinrad',''
 
