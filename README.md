@@ -30,6 +30,7 @@ chmod +x sdrGr4bb3r.sh
 * kalibrate-HackRF
 * GPS-SDR-SIM
 * Google Earth Pro
+* Gr-limesdr Plugin for GNURadio
 
 # Note 
 ```
