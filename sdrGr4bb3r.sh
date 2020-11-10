@@ -18,46 +18,56 @@
 	c25='\e[25m';		#unblink
   
 declare -A tools
-#                   tools[toolOrder]=[wget|apt],[toolName  ],[link|PackageName],[compressed(y),uncompressed(n)],[Installer(y),notInstaller(n)],[installcommand],[Rename]
-# tools[toolOrder,PrerequisiteOrder]=[wget|apt],[PrereqName],[link|PackageName],[compressed(y),uncompressed(n)],[Installer(y),notInstaller(n)],[installcommand],[Rename]
+#                   tools[toolOrder]=[wget|apt|pip],[toolName  ],[link|PackageName],[compressed(y),uncompressed(n)],[Installer(y),notInstaller(n)],[installcommand],[Rename]
+# tools[toolOrder,PrerequisiteOrder]=[wget|apt|pip],[PrereqName],[link|PackageName],[compressed(y),uncompressed(n)],[Installer(y),notInstaller(n)],[installcommand],[Rename]
+
+
 
 
 #------------------------------------------------- dump1090 ------------------------------------------------
-   tools[0]='wget','dump1090','https://github.com/MalcolmRobb/dump1090/archive/master.zip','y','y','make',''
- tools[0,0]='apt','Realtek RTL2832U (development)','librtlsdr-dev','n','n','',''
- tools[0,1]='apt','Realtek RTL2832U (library)','librtlsdr0','n','n','',''
+tools[0]='wget','dump1090','https://github.com/MalcolmRobb/dump1090/archive/master.zip','y','y','make',''
+tools[0,0]='apt','Realtek RTL2832U (development)','librtlsdr-dev','n','n','',''
+tools[0,1]='apt','Realtek RTL2832U (library)','librtlsdr0','n','n','',''
 #----------------------------------------------- IMSI-Catcher ----------------------------------------------
-  tools[1]='wget','IMSI-Catcher','https://github.com/Oros42/IMSI-catcher/archive/master.zip','y','n','',''
+tools[1]='wget','IMSI-Catcher','https://github.com/Oros42/IMSI-catcher/archive/master.zip','y','n','',''
 tools[1,0]='apt','GnuRadio-Global System for Mobile Communications','gr-gsm','n','n','',''
 #-------------------------------------------------- ADSBox -------------------------------------------------
-  tools[2]='wget','ADSBox','http://ucideas.org/projects/hard/adsb/adsbox-20170518.tar.gz','y','y','make',''
+tools[2]='wget','ADSBox','http://ucideas.org/projects/hard/adsb/adsbox-20170518.tar.gz','y','y','make',''
 tools[2,0]='wget','SQLite','https://www.sqlite.org/2020/sqlite-amalgamation-3330000.zip','y','n','','sqlite3'
 #-------------------------------------------------- ACARS --------------------------------------------------
-  tools[3]='wget','ACARS','https://github.com/gat3way/rtl_acars_ng/archive/master.zip','y','y','make',''
+tools[3]='wget','ACARS','https://github.com/gat3way/rtl_acars_ng/archive/master.zip','y','y','make',''
 #-------------------------------------------------- Gqrx ---------------------------------------------------
-  tools[4]='wget','Gqrx','https://github.com/csete/gqrx/releases/download/v2.11.5/gqrx-sdr-2.11.5-linux-x64.tar.xz','y','n','make',''
+tools[4]='wget','Gqrx','https://github.com/csete/gqrx/releases/download/v2.11.5/gqrx-sdr-2.11.5-linux-x64.tar.xz','y','n','make',''
 #------------------------------------------------- rtl_433 -------------------------------------------------
-   tools[5]='apt','rtl_433','rtl-433','n','n','make',''
+tools[5]='apt','rtl_433','rtl-433','n','n','make',''
 #--------------------------------------------- nrf905_decoder ----------------------------------------------
-  tools[6]='wget','nrf905_decoder','https://raw.githubusercontent.com/texane/nrf/master/unit/range/nrf905_decoder/main.c','n','y','gcc -O2 -Wall -o nrf905_decoder main.c',''
+tools[6]='wget','nrf905_decoder','https://raw.githubusercontent.com/texane/nrf/master/unit/range/nrf905_decoder/main.c','n','y','gcc -O2 -Wall -o nrf905_decoder main.c',''
 #-------------------------------------------- kalibrate-HackRF ---------------------------------------------
 #tools[7]='wget','kalibrate-HackRF','https://github.com/scateu/kalibrate-hackrf/archive/master.zip','y','y',"./bootstrap && CXXFLAGS='-W -Wall -O3' ./configure && make && make install",''
-   tools[7]='apt','kalibrate-rtl','kalibrate-rtl','n','n','',''  
- tools[7,0]='apt','Libtool','libtool','n','n','',''
- tools[7,1]='apt','libhackrf-dev','libhackrf-dev','n','n','',''
+tools[7]='apt','kalibrate-rtl','kalibrate-rtl','n','n','',''  
+tools[7,0]='apt','Libtool','libtool','n','n','',''
+tools[7,1]='apt','libhackrf-dev','libhackrf-dev','n','n','',''
 #----------------------------------------------- GPS-SDR-SIM -----------------------------------------------
-  tools[8]='wget','GPS-SDR-SIM','https://github.com/osqzss/gps-sdr-sim/archive/master.zip','y','y','make USER_MOTION_SIZE=4000',''
+tools[8]='wget','GPS-SDR-SIM','https://github.com/osqzss/gps-sdr-sim/archive/master.zip','y','y','make USER_MOTION_SIZE=4000',''
 tools[8,0]='apt','apt-transport-https','apt-transport-https','n','n','',''
 #-------------------------------------------- Google Earth Pro ---------------------------------------------
-  tools[9]='wget','Google Earth Pro','https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb','n','y','dpkg -i google-earth-pro-stable_current_amd64.deb',''
+tools[9]='wget','Google Earth Pro','https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb','n','y','dpkg -i google-earth-pro-stable_current_amd64.deb',''
 #------------------------------------ Gr-limesdr Plugin for GNURadio ---------------------------------------
- tools[10]='apt','Gr-limesdr Plugin for GNURadio','gr-limesdr','n','n','',''
+tools[10]='apt','Gr-limesdr Plugin for GNURadio','gr-limesdr','n','n','',''
+#-------------------------------------------- PySIM ---------------------------------------------
+tools[11]='wget','PySIM','https://github.com/osmocom/pysim/archive/master.zip','y','n','',''
+tools[11,0]='apt','python smartcard package','python-pyscard','n','n','',''
+tools[11,1]='apt','python serial','python-serial','n','n','',''
+tools[11,2]='pip','Python Tag Length Lavue(pytlv)','pytlv','n','n','',''
 
 
-# #------------------------------------------------ SigDigger ------------------------------------------------
-# # tools[10]='wget','SigDigger','https://github.com/BatchDrake/SigDigger/releases/download/v0.1.0/SigDigger-0.1.0-x86_64-full.AppImage','n','n','',''
-# # #------------------------------------------------- Linrad --------------------------------------------------
-  # # tools[0]='wget','Linrad','http://www.sm5bsz.com/linuxdsp/archive/lir04-14a.zip','y','y','make xlinrad',''
+
+
+
+#------------------------------------------------ SigDigger ------------------------------------------------
+# tools[10]='wget','SigDigger','https://github.com/BatchDrake/SigDigger/releases/download/v0.1.0/SigDigger-0.1.0-x86_64-full.AppImage','n','n','',''
+# #------------------------------------------------- Linrad --------------------------------------------------
+  # tools[0]='wget','Linrad','http://www.sm5bsz.com/linuxdsp/archive/lir04-14a.zip','y','y','make xlinrad',''
 
 
 
@@ -69,8 +79,8 @@ tools[8,0]='apt','apt-transport-https','apt-transport-https','n','n','',''
 
 
 str00='';
-str01='echo -e "${c32}⊕${c39} ${c27}apt Install $2${c39} : ${c22}successful${c39}."';
-str02='echo -e "${c31}⊖${c39} ${c27}apt Install $2${c39} : ${c31}FAILED${c39}."';
+str01='echo -e "${c32}⊕${c39} ${c27}apt Install $2${c39}: ${c22}successful${c39}."';
+str02='echo -e "${c31}⊖${c39} ${c27}apt Install $2${c39}: ${c31}FAILED${c39}."';
 str03='echo -e "${c37}⊘${c39} ${c37}Deleting path == installing path {c39}, ${c33}delete aborted${c39}."';
 str04='echo -e "${c32}⊕${c39} Deleting ${c37}$1${c39} : ${c22}successful${c39}."';
 str05='echo -e "${c31}⊖${c39} Deleting ${c37}$1${c39} : ${c31}FAILED${c39}."';
@@ -110,8 +120,8 @@ str38='echo -e "${c33} ${c39} ${c33}Installation Finished${c39}.\n";';
 str39='echo -e "${c31}⊖${c39} You are NOT ${c31}root${c39}.";';
 str40='echo -e "${c37}⊘${c39} We will Stop here.";';
 str41='echo -e "${c33}!${c39} ${c33}Bye.${c39}";';
-
-
+str42='echo -e "${c32}⊕${c39} ${c27}pip Install $2${c39}: ${c22}successful${c39}."';
+str43='echo -e "${c31}⊖${c39} ${c27}pip Install $2${c39}: ${c31}FAILED${c39}."';
 
 
 
@@ -127,8 +137,8 @@ str41='echo -e "${c33}!${c39} ${c33}Bye.${c39}";';
 isOnline()
 {
 	
-	ping -q -w1 -c1 google.com &>/dev/null && true || false ;
-#	ping -q -w1 -c1 192.168.15.120 &>/dev/null && echo 1 || echo 0 ;
+#	ping -q -w1 -c1 google.com &>/dev/null && true || false ;
+	ping -q -w1 -c1 127.0.0.1 &>/dev/null && echo 1 || echo 0 ;
 }
 
 
@@ -210,6 +220,7 @@ isInstaller()
 	else false ; return ;	
 	fi	
 }
+
 isApt()
 {
 	if [ "$1" = 'apt' ]
@@ -218,6 +229,23 @@ isApt()
 	else false ; 	
 	fi	
 }
+isWget()
+{
+	if [ "$1" = 'wget' ]
+	then
+		 true  ; 
+	else false ; 	
+	fi	
+}
+isPip()
+{
+	if [ "$1" = 'pip' ]
+	then
+		 true  ; 
+	else false ; 	
+	fi	
+}
+
 isExists()
 {
 	if [ -n "${tools[$1]}" ]
@@ -306,11 +334,25 @@ _apt()
 	fi
 }
 
+
+_pip()
+{
+	pip install $2 &> /dev/null
+	if [ $? ]; then
+		  eval $str42;
+		  true;return;
+	else
+		  eval $str43;
+		 false;return;
+	fi
+}
+
 # -- wget
 _wget()
 {
 	$(wget $1 -O "${iPath}/$2" &> /dev/null);
 }
+
 
 
 # -- unzip 
@@ -536,15 +578,18 @@ prerequisitesList()
 		CompressionType=$(echo ${tools[$1,$c]} | cut -d ',' -f 4)
 		   InstallOrNot=$(echo ${tools[$1,$c]} | cut -d ',' -f 5)
 		MakeFileOptions=$(echo ${tools[$1,$c]} | cut -d ',' -f 6)
-			   RenameTo=$(echo ${tools[$1,$c]} | cut -d ',' -f 7)
-		
+			   RenameTo=$(echo ${tools[$1,$c]} | cut -d ',' -f 7)		
 		
 		eval $str23;
 		
 		if $(isApt $(getPckgType $1 $c))
 		then 
 			_apt "$(getPckgName $1 $c)" "$(getPckgPayload $1 $c)"
-		else			
+		elif $(isPip $(getPckgType $1 $c))
+		then
+			_pip "$(getPckgName $1 $c)" "$(getPckgPayload $1 $c)"
+		elif $(isWget $(getPckgType $1 $c))
+		then
 			wgetFunc "${PackageName}" "${Package}" "${CompressionType}" "${InstallOrNot}" "${MakeFileOptions}" "$RenameTo"
 		fi
 		
@@ -571,12 +616,16 @@ toolInstaller()
 	MakeFileOptions=$(echo ${tools[$1]} | cut -d ',' -f 6)
 		   RenameTo=$(echo ${tools[$1]} | cut -d ',' -f 7)
 
-	if $(isApt $(getPckgType $1))
-	then 
-		_apt "$(getPckgName $1)" "$(getPckgPayload $1)"
-	else
-		wgetFunc "${PackageName}" "${Package}" "${CompressionType}" "${InstallOrNot}" "${MakeFileOptions}" "$RenameTo"
-	fi
+		if $(isApt $(getPckgType $1))
+		then 
+			_apt "$(getPckgName $1 $c)" "$(getPckgPayload $1 $c)"
+		elif $(isPip $(getPckgType $1))
+		then
+			_pip "$(getPckgName $1 $c)" "$(getPckgPayload $1 $c)"
+		elif $(isWget $(getPckgType $1))
+		then
+			wgetFunc "${PackageName}" "${Package}" "${CompressionType}" "${InstallOrNot}" "${MakeFileOptions}" "$RenameTo"
+		fi
 	
 	if [ "$?" = "1" ] ; then
 		return 1
@@ -658,7 +707,7 @@ hlp()
 	echo -e "#   | | |           |     | | |   | | |                          |";
 	echo -e "#   ${c31}●${c39} | ${c31}●${c39}           |     | ${c31}●${c39} ${c31}●${c39}   | | |                          |";
 	echo -e "#     |             |     ${c31}●${c39}       | | ${c31}●${c39}       ${c37} SDR for debian${c39}    |";
-	echo -e "#     ${c31}●${c39}             |             | ${c31}●${c39}         ${c37} v0.1 2020.Oct.9${c39}   |";
+	echo -e "#     ${c31}●${c39}             |             | ${c31}●${c39}         ${c37} v0.2 2020.nov.11${c39}   |";
 	echo -e "#                   ${c31}●${c39}             ${c31}●${c39}                              |";
 	echo -e "#----------------------------------------------------------------+";
 	echo -e "# usage  : ./sdrGr4bb3r [PathToInstall] (def. : CurrentFolder )  |";
