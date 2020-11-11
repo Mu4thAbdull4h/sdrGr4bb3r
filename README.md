@@ -31,6 +31,8 @@ chmod +x sdrGr4bb3r.sh
 * GPS-SDR-SIM
 * Google Earth Pro
 * Gr-limesdr Plugin for GNURadio
+* PySIM
+
 
 # Note 
 ```
